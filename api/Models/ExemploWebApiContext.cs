@@ -9,5 +9,10 @@ namespace api.Models
         }
 
         public DbSet<ExemploWebApiItem> ExemploWebApiItems {get; set;}
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
     }
 }

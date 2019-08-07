@@ -28,7 +28,9 @@ namespace api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ExemploWebApiContext>(opt => opt.UseInMemoryDatabase("ExemploWebApiList"));
+            // services.AddDbContext<ExemploWebApiContext>(opt => opt.UseInMemoryDatabase("ExemploWebApiList"));
+            // services.AddEntityFrameworkSqlServer().AddDbContext<ExemploWebApiContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
+            services.AddEntityFrameworkNpgsql().AddDbContext<ExemploWebApiContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("PostgreSql")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSwaggerGen(c =>
