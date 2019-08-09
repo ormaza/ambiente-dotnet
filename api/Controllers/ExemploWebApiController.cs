@@ -18,11 +18,11 @@ namespace api.Controllers
         {
             _context = context;
 
-            if(_context.ExemploWebApiItems.Count() == 0)
-            {
-                _context.ExemploWebApiItems.Add(new ExemploWebApiItem {Name = "Item1"});
-                _context.SaveChanges();
-            }
+            // if(_context.ExemploWebApiItems.Count() == 0)
+            // {
+            //     _context.ExemploWebApiItems.Add(new ExemploWebApiItem {Name = "Item1"});
+            //     _context.SaveChanges();
+            // }
         }
         // GET api/ExemploWebApi
         [HttpGet]
@@ -33,15 +33,15 @@ namespace api.Controllers
 
         // GET api/ExemploWebApi/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ExemploWebApiItem>> GetItem(int id)
+        public async Task<ActionResult<ExemploWebApiItem>> GetItem(long id)
         {
-            var Item = await _context.ExemploWebApiItems.FindAsync(id);
+            var ExemploWebApiItem = await _context.ExemploWebApiItems.FindAsync(id);
 
-            if(Item == null)
+            if(ExemploWebApiItem == null)
             {
                 return NotFound();
             }
-            return Item;
+            return ExemploWebApiItem;
         }
 
         // POST api/ExemploWebApi
